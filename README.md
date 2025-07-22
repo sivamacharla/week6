@@ -1,53 +1,93 @@
-# Web Development Project 5 - Dashboard
+#  Dog Breed Dashboard (Project 5 - Web Development)
 
-Submitted by: **Siva Macharla**
+**Submitted by:** Siva Macharla  
+**Time Spent:** 10 hours
 
-This web app: A React dashboard app that fetches and displays data about different dog breeds using TheDogAPI. Users can search and filter through the dog breeds and view key statistics about the breeds shown.
+This is a React-based dashboard web application that fetches and displays data about various dog breeds using [TheDogAPI](https://thedogapi.com). Users can search, filter, and explore different breeds, view their characteristics, and see key summary statistics and visualizations.
 
-Time spent: **10** hours spent in total
+---
 
-## Required Features
+##  Features
 
-The following **required** functionality is completed:
+###  Required Features
 
-- [x] **The site has a dashboard displaying a list of data fetched using an API call**
-  - The dashboard displays at least 10 unique dog breeds, one per row
-  - Each row includes at least two features: breed name and temperament
-- [x] **`useEffect` React hook and `async`/`await` are used** to fetch data
-- [x] **The app dashboard includes at least three summary statistics about the data**
-  - Total number of dog breeds displayed
-  - Average weight of the displayed breeds
-  - Distribution of breeds by country of origin
-- [x] **A search bar allows the user to search for a dog breed by name**
-  - The search bar correctly filters breeds, displaying only matching results
-  - The results update dynamically as the user types
-- [x] **An additional filter allows the user to restrict breeds by temperament**
-  - The temperament filter uses a dropdown selection
-  - The filter correctly updates the dashboard to only show breeds matching the selected temperament
+- **Data Dashboard**:  
+  - Fetches and displays a list of at least **10 unique dog breeds**
+  - Each breed card shows:
+    -  **Name**
+    -  **Temperament**
+    -  **Weight**
+    -  **Origin**
 
-The following **optional** features are implemented:
+- **API Integration**:
+  - Uses `useEffect` and `async/await` for fetching breed data from TheDogAPI.
 
-- [ ] Multiple filters can be applied simultaneously (search + temperament filter)
-- [ ] Filters use different input types (text input for search, dropdown for temperament)
-- [ ] The user can enter specific bounds for filter values (not implemented)
+- **Summary Statistics**:
+  -  Total breeds displayed
+  -  Average breed weight (in kg)
+  -  Breed count by group (or country of origin)
 
-The following **additional** features are implemented:
+- **Search Functionality**:
+  - Real-time filtering of breeds by name using a search bar
 
-- [ ] Responsive design for mobile and desktop viewing
-- [ ] Loading spinner displayed while data is being fetched
+- **Filter by Temperament**:
+  - Dropdown to filter breeds by temperament
+  - Dashboard updates accordingly
 
-## Video Walkthrough
+---
 
-Here's a walkthrough of implemented user stories:
+###  Additional Features
 
-https://submissions.us-east-1.linodeobjects.com/web102/SMdeNpHQ.gif
+-  **Data Visualizations**:
+  - Bar chart showing distribution of breeds by breed group
+  - Life span chart for visual reference (Recharts)
 
-GIF created with:  
-[Kap](https://getkap.co/) for macOS
+-  **Component-Based Architecture**:
+  - Clean folder structure with reusable components (BreedList, Summary, Charts, Detail View, etc.)
 
-## Notes
+-  **Routing**:
+  - `react-router-dom` used to navigate between breed list and individual breed detail pages
 
-Challenges included understanding how to use TheDogAPI's breed data effectively and managing filtering state between search and dropdown filters. Additionally, ensuring the app was responsive on different screen sizes required custom CSS adjustments.
+-  **CSS Styling**:
+  - Modern UI using custom styles for cards, charts, and summaries
+  - Subtle hover effects, layout responsiveness, and theming
 
-## License
+---
 
+##  Optional Features (Not Implemented)
+
+- Simultaneous multi-filtering (e.g. combining temperament + weight + search)
+- Range sliders for weight/life span filtering
+- Full mobile responsiveness
+
+---
+
+##  Video Walkthrough
+
+https://submissions.us-east-1.linodeobjects.com/web102/T861Xqqx.gif
+
+---
+
+##  Challenges
+
+- Handling breeds with incomplete or missing data (null weights, no temperament, etc.)
+- Building dynamic filters for non-uniform data (e.g., multiple temperaments per breed)
+- Managing the shared filter state cleanly between components
+
+---
+
+##  Technologies Used
+
+- React
+- React Router
+- Recharts (for data visualization)
+- TheDogAPI
+- Vite
+- CSS (custom styling)
+
+---
+
+##  License
+
+This project is licensed for educational use.  
+© 2025 Siva Macharla. All rights reserved.
