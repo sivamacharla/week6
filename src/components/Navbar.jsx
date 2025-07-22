@@ -1,3 +1,4 @@
+
 function NavBar({ search, setSearch, groupFilter, setGroupFilter, breedGroups }) {
   return (
     <nav className="navbar">

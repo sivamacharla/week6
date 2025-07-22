@@ -1,8 +1,12 @@
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import NavBar from './components/Navbar';
 import Summary from './components/Summary';
 import BreedList from './components/BreedList';
+import BreedDetail from './components/BreedDetail';
+import BreedChart from './components/BreedChart';
 import './App.css';
 
 const API_KEY = 'live_4ZqR3i0yYLeR3dXoOU9bvDqBRgu9nPvGpD63Qu7khNUAPJcsm5SVo6FFMxuNamPq';
@@ -30,12 +34,8 @@ function App() {
   );
 
   const filteredDogs = dogs
-    .filter((d) =>
-      d.breeds[0].name.toLowerCase().includes(search.toLowerCase())
-    )
-    .filter((d) =>
-      groupFilter === 'All' ? true : d.breeds[0].breed_group === groupFilter
-    );
+    .filter((d) => d.breeds[0].name.toLowerCase().includes(search.toLowerCase()))
+    .filter((d) => groupFilter === 'All' ? true : d.breeds[0].breed_group === groupFilter);
 
   const avgWeight = (
     filteredDogs.reduce((sum, d) => {
@@ -46,7 +46,7 @@ function App() {
   ).toFixed(1);
 
   return (
-    <div className="App">
+    <Router>
       <Header />
       <NavBar
         search={search}
@@ -55,9 +55,20 @@ function App() {
         setGroupFilter={setGroupFilter}
         breedGroups={breedGroups}
       />
-      <Summary count={filteredDogs.length} avgWeight={avgWeight} totalGroups={breedGroups.length} />
-      <BreedList dogs={filteredDogs} />
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Summary count={filteredDogs.length} avgWeight={avgWeight} totalGroups={breedGroups.length} />
+              <BreedChart dogs={filteredDogs} />
+              <BreedList dogs={filteredDogs} />
+            </>
+          }
+        />
+        <Route path="/breed/:id" element={<BreedDetail dogs={dogs} />} />
+      </Routes>
+    </Router>
   );
 }
 

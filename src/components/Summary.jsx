@@ -1,3 +1,5 @@
+
+import './Summary.css';
 function Summary({ count, avgWeight, totalGroups }) {
   return (
     <div className="summary">
